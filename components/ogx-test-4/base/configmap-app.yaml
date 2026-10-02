@@ -11,13 +11,13 @@ metadata:
     app.kubernetes.io/name: ogx-test-4-app-config
 data:
   # Inference model configuration
-  INFERENCE_MODEL: "vllm/redhataillama-31-8b-instruct"
+  INFERENCE_MODEL: "vllm/meta-llama-31-8b-quantizedw4a16"
   
   # Guardrail model for content safety
   GUARDRAIL_MODEL: "ollama/llama-guard3:8b"
   
   # Model for MCP tool calls
-  MCP_TOOL_MODEL: "vllm/redhataillama-31-8b-instruct"
+  MCP_TOOL_MODEL: "vllm/meta-llama-31-8b-quantizedw4a16"
   
   # GitHub repository URL for issue creation
   GITHUB_URL: "https://github.com/redhat-ai-dev/ai-rhdh-installer"
