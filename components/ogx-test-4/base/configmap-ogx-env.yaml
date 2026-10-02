@@ -18,7 +18,7 @@ data:
   # mixin, which appends /models and /chat/completions to this base URL, so it
   # must end in /v1. Make sure the vllmUrl value provided at scaffold time ends
   # in /v1.
-  VLLM_URL: "https://meta-llama-31-8b-3scale-apicast-production.apps.rosa.redhat-ai-dev.m6no.p3.openshiftapps.com:443"
+  VLLM_URL: "https://meta-llama-31-8b-3scale-apicast-production.apps.rosa.redhat-ai-dev.m6no.p3.openshiftapps.com:443/v1"
 
   # Ollama Server URL (points to deployed Ollama service)
   OLLAMA_URL: "http://ogx-test-4-ollama:11434/v1"
