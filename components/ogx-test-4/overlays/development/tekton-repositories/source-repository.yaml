@@ -1,0 +1,6 @@
+apiVersion: "pipelinesascode.tekton.dev/v1alpha1"
+kind: Repository
+metadata:
+  name: ogx-test-4-repository
+spec:
+  url: https://github.com/rhdh-JslYoon-org/ogx-test-4

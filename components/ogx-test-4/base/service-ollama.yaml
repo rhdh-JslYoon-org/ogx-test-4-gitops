@@ -1,0 +1,22 @@
+# Ollama Server Service
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  labels:
+    app.kubernetes.io/instance: ogx-test-4-ollama
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: ogx-test-4-ollama
+    app.kubernetes.io/part-of: ogx-test-4
+    app.kubernetes.io/component: ollama
+  name: ogx-test-4-ollama
+spec:
+  ports:
+    - name: http
+      port: 11434
+      protocol: TCP
+      targetPort: 11434
+  selector:
+    app.kubernetes.io/instance: ogx-test-4-ollama
+  type: ClusterIP

@@ -1,0 +1,33 @@
+# Application Configuration ConfigMap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: ogx-test-4-app-config
+  labels:
+    app.kubernetes.io/instance: ogx-test-4
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: ogx-test-4-app-config
+data:
+  # Inference model configuration
+  INFERENCE_MODEL: "vllm/redhataillama-31-8b-instruct"
+  
+  # Guardrail model for content safety
+  GUARDRAIL_MODEL: "ollama/llama-guard3:8b"
+  
+  # Model for MCP tool calls
+  MCP_TOOL_MODEL: "vllm/redhataillama-31-8b-instruct"
+  
+  # GitHub repository URL for issue creation
+  GITHUB_URL: "https://github.com/redhat-ai-dev/ai-rhdh-installer"
+  
+  # Ingestion configuration path (baked into image)
+  INGESTION_CONFIG: "/app-root/config/ingestion-config.yaml"
+  
+  # RAG file metadata path (writable location for runtime updates)
+  RAG_FILE_METADATA: "/tmp/rag_file_metadata.json"
+  
+  # Maximum concurrent workflow threads
+  EXECUTOR_WORKERS: "10"
+

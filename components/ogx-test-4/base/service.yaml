@@ -1,0 +1,20 @@
+# Service for Streamlit UI Application
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+  labels:
+    app.kubernetes.io/instance: ogx-test-4
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: ogx-test-4
+  name: ogx-test-4
+spec:
+  ports:
+    - port: 8501
+      protocol: TCP
+      targetPort: 8501
+      name: http
+  selector:
+    app.kubernetes.io/instance: ogx-test-4
+

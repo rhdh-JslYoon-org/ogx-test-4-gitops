@@ -1,0 +1,27 @@
+# OGX Environment Variables ConfigMap
+# Contains non-sensitive configuration values from the template.
+# These are injected as environment variables into the OGX container.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: ogx-test-4-ogx-env
+  labels:
+    app.kubernetes.io/instance: ogx-test-4
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: ogx-test-4-ogx-env
+    app.kubernetes.io/component: ogx
+data:
+  # vLLM Server URL
+  # OGX 1.2.5 reaches vLLM/Ollama through the OpenAI-compatible inference
+  # mixin, which appends /models and /chat/completions to this base URL, so it
+  # must end in /v1. Make sure the vllmUrl value provided at scaffold time ends
+  # in /v1.
+  VLLM_URL: "https://meta-llama-31-8b-3scale-apicast-production.apps.rosa.redhat-ai-dev.m6no.p3.openshiftapps.com:443"
+
+  # Ollama Server URL (points to deployed Ollama service)
+  OLLAMA_URL: "http://ogx-test-4-ollama:11434/v1"
+  
+  # Safety Model for guardrails
+  SAFETY_MODEL: "ollama/llama-guard3:8b"
